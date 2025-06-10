@@ -2,7 +2,7 @@ $zqwxkplmnv = (Get-WmiObject Win32_NetworkAdapterConfiguration | Where-Object { 
 $plmnqwtzrk = (Get-WmiObject Win32_NetworkAdapterConfiguration | Where-Object { $_.MACAddress -ne $null } | Select-Object -First 1).MACAddress
 $plmnqwtzrk = $plmnqwtzrk -replace ":", ""
 $vxkplqwtmn = Get-Date -Format "MMdd_HHmm"
-$tzqlwmnrxp = "$plmnqwtzrk-$zqwxkplmnv-1.txt"
+$tzqlwmnrxp = "$plmnqwtzrk-$zqwxkplmnv-$vxkplqwtmn-1.txt"
 $hqnxplmztw = Join-Path $env:appdata $tzqlwmnrxp
 (Get-CimInstance Win32_OperatingSystem).LastBootUpTime | Out-File -FilePath $hqnxplmztw
 $nxzqplmwtr = $hqnxplmztw
